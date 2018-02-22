@@ -45,7 +45,6 @@
 #include "opt-synchprobs.h"
 #include "opt-sfs.h"
 #include "opt-net.h"
-
 /*
  * In-kernel menu and command dispatcher.
  */
@@ -155,7 +154,7 @@ common_prog(int nargs, char **args)
 #ifdef UW
 	/* wait until the process we have just launched - and any others that it 
 	   may fork - is finished before proceeding */
-	P(no_proc_sem);
+	/*P(no_proc_sem);*/
 #endif // UW
 
 	return 0;
@@ -454,11 +453,16 @@ cmd_opsmenu(int n, char **a)
 static const char *testmenu[] = {
 	"[at]  Array test                    ",
 	"[bt]  Bitmap test                   ",
+	"[fp]  function pointer		     ",
 	"[km1] Kernel malloc test            ",
 	"[km2] kmalloc stress test           ",
 	"[tt1] Thread test 1                 ",
 	"[tt2] Thread test 2                 ",
 	"[tt3] Thread test 3                 ",
+	"[tf]  Thread fun		     ",
+	"[utc] Unsafe thread counter         ",
+	"[ltc] Lock thread counter           ",
+	"[stc] Spinlock thread counter       ",
 #if OPT_NET
 	"[net] Network test                  ",
 #endif
@@ -563,6 +567,7 @@ static struct {
 	/* base system tests */
 	{ "at",		arraytest },
 	{ "bt",		bitmaptest },
+	{ "fp",		funcPointer },
 	{ "km1",	malloctest },
 	{ "km2",	mallocstress },
 #if OPT_NET
@@ -572,6 +577,11 @@ static struct {
 	{ "tt2",	threadtest2 },
 	{ "tt3",	threadtest3 },
 	{ "sy1",	semtest },
+	{ "tf",		threadfun },
+	{ "utc", 	unsafethreadcounter },
+	{ "ltc", 	lockthreadcounter },
+	{ "stc", 	spinlockthreadcounter },
+
 
 	/* synchronization assignment tests */
 	{ "sy2",	locktest },

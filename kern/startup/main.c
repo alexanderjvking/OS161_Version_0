@@ -50,7 +50,7 @@
 #include <test.h>
 #include <version.h>
 #include "autoconf.h"  // for pseudoconfig
-
+#include <hello.h>
 
 /*
  * These two pieces of data are maintained by the makefiles and build system.
@@ -101,9 +101,10 @@ boot(void)
 	kprintf("%s", harvard_copyright);
 	kprintf("\n");
 
-	kprintf("Put-your-group-name-here's system version %s (%s #%d)\n", 
-		GROUP_VERSION, buildconfig, buildversion);
+	kprintf("Alexander King %s (%s #%d)\n", 
+			GROUP_VERSION, buildconfig, buildversion);
 	kprintf("\n");
+	hello();
 
 	/* Early initialization. */
 	ram_bootstrap();
@@ -209,5 +210,4 @@ kmain(char *arguments)
 
 	menu(arguments);
 
-	/* Should not get here */
-}
+	/* Should not get here */}

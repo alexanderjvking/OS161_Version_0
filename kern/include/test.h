@@ -51,11 +51,15 @@ int catmouse(int, char **);
 int arraytest(int, char **);
 int bitmaptest(int, char **);
 int queuetest(int, char **);
-
+int funcPointer(int, char **);
 /* thread tests */
 int threadtest(int, char **);
+int threadfun(int, char **);
 int threadtest2(int, char **);
 int threadtest3(int, char **);
+int unsafethreadcounter(int, char**);
+int lockthreadcounter(int, char**);
+int spinlockthreadcounter(int, char**);
 int semtest(int, char **);
 int locktest(int, char **);
 int cvtest(int, char **);

@@ -13,7 +13,7 @@
 # The things that can be set here are documented in mk/os161.config.mk.
 #
 
-OSTREE=/home/kinale26/os161/root
+OSTREE=/home/kinale26/OS161_Version_0/root
 PLATFORM=sys161
 MACHINE=mips
 COMPAT_CFLAGS=
